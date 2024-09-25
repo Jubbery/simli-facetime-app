@@ -17,7 +17,6 @@ interface Avatar {
 }
 
 // Updated JSON structure for avatar data with image URLs
-
 const avatar = {
   name: "Vera",
   simli_faceid: "veraforseries",
