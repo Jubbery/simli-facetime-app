@@ -191,7 +191,7 @@ export class SimliClient {
                     resolve();
                 }
             }
-            this.pc.addEventListener('icegatheringstatechange', checkState);
+            this.pc?.addEventListener('icegatheringstatechange', checkState);
         });
     }
 
