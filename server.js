@@ -25,6 +25,8 @@ PlayHT.init({
   userId: process.env.NEXT_PUBLIC_PLAYHT_USER_ID,
 });
 
+BACKEND_URL = process.env.BACKEND_URL;
+
 const streamingOptions = {
   voiceEngine: "PlayHT2.0-turbo",
   voiceId:
@@ -341,5 +343,5 @@ async function promptLLM(ws, initialPrompt, prompt, voiceId, connectionId) {
 
 const port = 8080;
 server.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`Server running on ${BACKEND_URL}:${port}`);
 });

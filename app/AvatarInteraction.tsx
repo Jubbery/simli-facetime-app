@@ -87,18 +87,22 @@ const AvatarInteraction: React.FC<AvatarInteractionProps> = ({
   /* startConversation() queries our local backend to start an elevenLabs conversation over Websockets */
   const startConversation = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:8080/start-conversation", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          prompt: initialPrompt,
-          voiceId: elevenlabs_voiceid,
-        }),
-      });
+      const response = await fetch(
+        `${process.env.BACKEND_URL}:8080/start-conversation`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt: initialPrompt,
+            voiceId: elevenlabs_voiceid,
+          }),
+        }
+      );
 
       if (!response.ok) {
+        console.log("ISSUE in startConversation");
         throw new Error("Failed to start conversation");
       }
 
